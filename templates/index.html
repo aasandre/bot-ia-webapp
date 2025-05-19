@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel do Bot IA</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Bot IA PyTorch — Painel de Controle</h1>
+
+    <div class="stats">
+      <p><strong>Wins:</strong> <span id="wins">0</span></p>
+      <p><strong>Losses:</strong> <span id="losses">0</span></p>
+      <p><strong>Lucro Total:</strong> $<span id="lucro_total">0.00</span></p>
+      <p><strong>Saldo:</strong> (em breve)</p>
+    </div>
+
+    <div class="form">
+      <h2>Parâmetros</h2>
+      <label>Stake Inicial: <input type="number" id="stake_inicial" step="0.01" value="1.00"></label>
+      <label>Stake Máxima: <input type="number" id="stake_maxima" step="0.01" value="25.00"></label>
+      <label>Multiplicador Martingale: <input type="number" id="multiplicador" step="0.01" value="2.10"></label>
+      <label>Limiar IA: <input type="number" id="limiar_ia" step="0.01" value="0.50"></label>
+      <button onclick="salvarParametros()">Salvar</button>
+      <button onclick="resetarStats()">Resetar Estatísticas</button>
+    </div>
+
+    <div class="trades">
+      <h2>Últimos Trades</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Hora</th>
+            <th>Direção</th>
+            <th>Stake</th>
+            <th>Resultado</th>
+            <th>Lucro</th>
+          </tr>
+        </thead>
+        <tbody id="trade_body">
+          <!-- Dados dinâmicos -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
