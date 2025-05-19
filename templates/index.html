@@ -10,10 +10,12 @@
     <h1>Bot IA PyTorch — Painel de Controle</h1>
 
     <div class="stats">
+      <p><strong>Status do Bot:</strong> <span id="status_bot">Desativado</span></p>
       <p><strong>Wins:</strong> <span id="wins">0</span></p>
       <p><strong>Losses:</strong> <span id="losses">0</span></p>
       <p><strong>Lucro Total:</strong> $<span id="lucro_total">0.00</span></p>
       <p><strong>Saldo:</strong> (em breve)</p>
+      <button onclick="toggleBot()" id="botao_toggle">Iniciar Bot</button>
     </div>
 
     <div class="form">
@@ -39,7 +41,6 @@
           </tr>
         </thead>
         <tbody id="trade_body">
-          <!-- Dados dinâmicos -->
         </tbody>
       </table>
     </div>

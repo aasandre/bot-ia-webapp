@@ -5,6 +5,10 @@ async function atualizarPainel() {
   document.getElementById("wins").innerText = dados.wins;
   document.getElementById("losses").innerText = dados.losses;
   document.getElementById("lucro_total").innerText = dados.lucro_total.toFixed(2);
+  document.getElementById("status_bot").innerText = dados.ativo ? "Ativo" : "Desativado";
+
+  const botao = document.getElementById("botao_toggle");
+  botao.innerText = dados.ativo ? "Parar Bot" : "Iniciar Bot";
 
   const corpo = document.getElementById("trade_body");
   corpo.innerHTML = "";
@@ -38,6 +42,16 @@ function salvarParametros() {
 
 function resetarStats() {
   fetch("/api/reset", { method: "POST" }).then(() => atualizarPainel());
+}
+
+function toggleBot() {
+  fetch("/api/estatisticas")
+    .then(res => res.json())
+    .then(data => {
+      const ativo = data.ativo;
+      const rota = ativo ? "/api/stop" : "/api/start";
+      fetch(rota, { method: "POST" }).then(() => atualizarPainel());
+    });
 }
 
 setInterval(atualizarPainel, 3000);
