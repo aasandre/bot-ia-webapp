@@ -78,4 +78,7 @@ if __name__ == "__main__":
     # Iniciar bot em thread separada
     Thread(target=rodar_bot_em_thread, daemon=True).start()
     # Rodar servidor Flask
-    app.run(debug=False)
+    import os
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
+
