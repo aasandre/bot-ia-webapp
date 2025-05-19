@@ -44,7 +44,7 @@ def carregar_modelo_contexto(input_cols, path_model="modelo_contexto.pt", path_s
 
 
 # Constantes
-API_TOKEN = "BZsX6ngxvhEBQOL"
+API_TOKEN = "PICMkFKzfW8fhuU"
 SYMBOL = "1HZ10V"
 DURATION = 3
 STAKE_INICIAL = 1
